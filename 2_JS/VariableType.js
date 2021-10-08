@@ -12,4 +12,4 @@ console.log(b);
 b[five] = ["HAHAHAHAH", "MEOW"];
 console.log(b);
 console.log(b);
-console.log(b.six);
+console.logb["five"];

@@ -23,13 +23,13 @@ export class Helper {
     var result: Map<string, User> = new Map<string, User>();
     try {
       var users = [
-        new User('Leanne Graham', 18, 'sincere@april.biz', 'LG_123456'),
+        new User('Leanne Graham', 18, "sincere@april.biz", "LG_123456"),
         new User('Ervin Howell', 21, 'shanna@melissa.tv', 'EH_123123'),
         new User('Nathan Plains', 25, 'nathan@yesenia.net', 'NP_812415'),
-        new User('Patricia Lebsack', 18, 'patty@kory.org', 'PL_12345'),
+        new User("Patricia Lebsack", 18, "patty@kory.org", "PL_12345"),
       ];
       users.forEach((user) => {
-        result.set(user.id, user);
+        result.set(user.toJson().id, user);
       });
       return result;
     } catch (error) {
@@ -40,8 +40,7 @@ export class Helper {
 
   static validBody(body: any): { valid: boolean; data: string } {
     try {
-    //   var keys: Array<string> = Helper.describeClass(User);
-    var keys: Array<string> = ['name', 'age', 'email', 'password'];
+      var keys: Array<string> = Helper.describeClass(User);
       var types: Map<string, string> = new Map<string, string>();
       types.set('name', typeof '');
       types.set('age', typeof 0);
@@ -49,7 +48,7 @@ export class Helper {
       types.set('password', typeof '');
       for (const key of Object.keys(body)) {
         if (!keys.includes(`${key}`) && typeof body[key] != types.get(key)) {
-          return { valid: false, data: `${key} is not a valid attribute` };
+          return { valid: false, data: `${key} is not valid` };
         }
         if (typeof body[key] != types.get(key)) {
           throw new Error(
@@ -87,3 +86,4 @@ export class Helper {
     }
   }
 }
+

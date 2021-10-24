@@ -1,0 +1,122 @@
+.mainContent {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.login {
+    background-color: white;
+    width: 400px;
+    height: 650px;
+    border-radius: 4px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input:focus {
+    outline: none !important;
+    border-color: #719ECE;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.loginbtn {
+    background-color: #6C63FF;
+}
+
+.loginbtn:hover {
+    opacity: 0.8;
+}
+
+.googlebtn {
+    color: black;
+    width: auto;
+}
+
+.googlebtn:hover {
+    opacity: 0.8;
+}
+
+.facebookbtn {
+    color: black;
+}
+
+.facebookbtn:hover {
+    opacity: 0.8;
+}
+
+.applebtn {
+    color: black;
+}
+
+.applebtn:hover {
+    opacity: 0.8;
+}
+
+// span.psw {
+//     text-align: center;
+//     padding-bottom: 24px;
+//     padding-top: 24px;
+//     color: gray;
+// }
+span.pswa {
+    text-align: center;
+    padding-bottom: 18px;
+    padding-top: 18px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.login--cr8acc {
+    text-align: center;
+    color: blue;
+}
+
+p {
+    text-align: center;
+    padding-bottom: 12px;
+    padding-top: 8px;
+    color: gray;
+}
+
+a {
+    text-align: center;
+    color: blue;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+img {
+    margin: 0 15px 0 0;
+    width: 20px;
+    height: 20px;
+}

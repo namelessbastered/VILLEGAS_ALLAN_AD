@@ -1,0 +1,45 @@
+<div class="mainContent">
+    <div class="login">
+        <h2>Log in</h2>
+        <div class="actions">
+            <p class="psw">New user? <a class="login--cr8acc" (click)="nav('register')">Create Account</a></p>
+            <!-- <span class="psw">New user? <a class="login--cr8acc" (click)="nav('register')">Create Account</a></span> -->
+        </div>
+        <div class="inputs">
+            <label for="Email">Email</label>
+            <input type="email" placeholder="Username" name="EMAIL" [formControl]="fcEmail" />
+            <label for="Password">Password</label>
+            <input type="password" placeholder="Password" name="PASSWORD" [formControl]="fcPassword" />
+        </div>
+        <p>{{requestResult | json}}</p>
+        <br>
+        <div class="actions">
+            <button type="button" class="loginbtn" (click)="login()">LOG IN</button>
+        </div>
+
+        <!-- <div>
+            <h3>{{userCredential1}}</h3>
+            <h3>{{userCredential2}}</h3>
+        </div>
+        <div *ngIf="userCredential1.length >= 5">
+            "Username has greater length than or more than 5"
+        </div>
+        <div *ngIf="userCredential1.length < 5">
+            "Username has lesser length than 5"
+        </div>
+        <div *ngFor="user of users; let i = index">
+            <div>
+                <h1>{{users[i].username}}</h1>
+                <h2>{{users[i].password}}</h2>
+            </div>
+        </div> -->
+
+        <span class="pswa"> <a href="#">Forgot your password?</a></span>
+        <br><br><br>
+        <button type="button" class="googlebtn"><img src="../../../assets/google.png">Log in with Google</button>
+        <br>
+        <button type="button" class="facebookbtn"><img src="../../../assets/facebook.png">Log in with Facebook</button>
+        <br>
+        <button type="button" class="applebtn"><img src="../../../assets/apple.png">Log in with Apple</button>
+    </div>
+</div>

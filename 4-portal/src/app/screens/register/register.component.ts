@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private api: HttpClient) {}
 
   registerForm: FormGroup = new FormGroup({
     fcName: new FormControl('', Validators.required),
@@ -18,11 +20,13 @@ export class RegisterComponent implements OnInit {
     fcPassword2: new FormControl('', Validators.required),
   });
 
+  result: any ={success:false, data:'Fill the data to register'};
+
   error: string = '';
 
   ngOnInit(): void {}
 
-  onSubmit() {
+  async onSubmit() {
     if (
       this.registerForm.value['fcPassword'] !==
       this.registerForm.value['fcPassword2']
@@ -50,6 +54,20 @@ export class RegisterComponent implements OnInit {
         password: this.registerForm.value.fcPassword,
       };
       console.log(payload);
+
+      this.result= await this.api
+      .post(environment.API_URL+'/user/register', {
+        name: payload.name,
+        age: payload.age,
+        email: payload.email,
+        password: payload.password,
+      }).toPromise();
+
+      if (this.result.success) {
+        this.result = {success: true, data:'Registration Success'};
+        this.error = 'Alright!'
+        return;
+      }
     }
   }
 
